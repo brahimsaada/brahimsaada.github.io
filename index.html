@@ -1,265 +1,708 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAHIM SAADA - Cybersecurity Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <title>Brahim Saada</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        header {
+            background: linear-gradient(135deg, #1a1f3a 0%, #0a0e27 100%);
+            padding: 2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 255, 157, 0.1);
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ff9d;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
 
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff9d;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 5%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ff9d, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: #8892b0;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #a8b2d1;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: 2px solid #00ff9d;
+            background: transparent;
+            color: #00ff9d;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #00ff9d;
+            color: #0a0e27;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 157, 0.3);
+        }
+
+        .btn-primary {
+            background: #00ff9d;
+            color: #0a0e27;
+        }
+
+        .terminal {
+            background: #1a1f3a;
+            border: 2px solid #00ff9d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.2);
+            animation: fadeInRight 1s ease 0.5s both;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff5f56;
+        }
+
+        .terminal-btn:nth-child(2) { background: #ffbd2e; }
+        .terminal-btn:nth-child(3) { background: #27c93f; }
+
+        .terminal-content {
+            color: #00ff9d;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .typing {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 2s steps(40) 1s both;
+        }
+
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #00ff9d;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ff9d, transparent);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: #1a1f3a;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #2d3561;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        .skill-card:nth-child(5) { animation-delay: 0.5s; }
+        .skill-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: #00ff9d;
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
+        }
+
+        .skill-card h3 {
+            color: #00ff9d;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            color: #a8b2d1;
+        }
+
+        .skill-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #2d3561;
+        }
+
+        .skill-card li:last-child {
+            border-bottom: none;
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(180deg, #00ff9d, #00d4ff);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #1a1f3a;
+            border-radius: 10px;
+            border: 1px solid #2d3561;
+            opacity: 0;
+            animation: slideInLeft 0.6s ease forwards;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 2rem;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #00ff9d;
+            border: 3px solid #0a0e27;
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
+
+        .experience-item h3 {
+            color: #00ff9d;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-date {
+            color: #8892b0;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #1a1f3a;
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid #2d3561;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #00ff9d;
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
+        }
+
+        .project-card h3 {
+            color: #00ff9d;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #2d3561;
+            color: #00ff9d;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 5rem 5%;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            color: #00ff9d;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+      .logo-img {
+          width: 40px;      /* size of the circle */
+          height: 40px;     /* same as width for perfect circle */
+          border-radius: 50%; /* makes it circular */
+          object-fit: cover;  /* ensures the image fits inside the circle */
+        }
+
+    </style>
 </head>
-
 <body>
-
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex flex-column justify-content-center">
-
-    <nav id="navbar" class="navbar nav-menu">
-      <ul>
-        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-      </ul>
-    </nav><!-- .nav-menu -->
-
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Brahim Saada</h1>
-      <p>I am a <span class="typed" data-typed-items="JUNIOR CYBERSECURITY ENGINEER"></span></p>
-      <div class="social-links">
-        <a href="https://facebook.com/sa.brahim22" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://linkedin.com/in/brahim-saada" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>ABOUT ME</h2>
-          <p>As a student in the penultimate year of a master's degree in cybersecurity, I am deeply involved in the field of protecting digital systems and data against constantly evolving cyber threats. I am actively seeking opportunities that will foster my growth and expertise, allowing me to make significant contributions while continuing to develop my skills in a dynamic environment.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-12 pt-4 pt-lg-0 content">
-            <h3>JUNIOR CYBERSECURITY ENGINEER</h3>
-            <div class="row">
-              <div class="col-lg-7">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+212 774 03 34 24</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-5">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>s.brahim3001@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
+    <canvas class="matrix-bg" id="matrix"></canvas>
+    
+    <header>
+        <nav>
+            <div class="logo">
+              <img src="assets/img/favicon.png" alt="Logo" class="logo-img" />
             </div>
-          </div>
-        </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6">
-            <h3 class="resume-title">Summary</h3>
-            <div class="resume-item pb-0">
-              <h4>Brahim Saada</h4>
-              <p><em>I am passionate about cybersecurity, committed to applying security best practices, and skilled in system analysis, vulnerability detection, and implementing effective protection solutions.</em></p>
-              <ul>
-                <li>+212 774 03 34 24</li>
-                <li>s.brahim3001@gmail.com</li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title">EXPERIENCE</h3>
-
-            <div class="resume-item">
-              <h4>Computer Science Teacher / Web Developer</h4>
-              <h5>2022 - 2023</h5>
-              <p><em>RoboCode</em></p>
-              <p>5 months of experience, we provide coding training, 
-                web development and robotics for children aged 6 to 18.</p>
-            </div>
-            <div class="resume-item">
-              <h4>Mail Agent</h4>
-              <h5>2023 - 2024</h5>
-              <p><em>E-ContactMessage</em></p>
-              <p>9 months of experience.</p>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">EDUCATION</h3>
-            <div class="resume-item">
-              <h4>Baccalaureate in Mathematical Science Option (A) with
-                Passable mention.</h4>
-              <h5></h5>
-              <p><em>Lycee Hassan II</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Baccalaureate in Physical Science
-                with Fairly Good mention.</h4>
-              <h5></h5>
-              <p><em>Lycee Hassan II</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>DEUG in Mathematical and Computer Sciences</h4>
-              <h5></h5>
-              <p><em>Faculty of Sciences of Meknes</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Bachelor's degree in Mathematical and
-                Computer Sciences with Fairly Good mention.</h4>
-              <h5></h5>
-              <p><em>Faculty of Sciences of Meknes</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>MASTER in Information Systems Security.</h4>
-              <h5></h5>
-              <p><em>National School of Applied Sciences of Kenitra</em></p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Resume Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-        </div>
-
-        <div class="row mt-1">
-
-          <div class="col-lg-4">
-            <div class="info">
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>s.brahim3001@gmail.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Phone:</h4>
-                <p>+212 774 03 34 24</p>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>BRAHIM SAADA</h1>
+                <div class="subtitle">Junior Cybersecurity Engineer</div>
+                <p>Specialized in security incident management, vulnerability analysis, and SIEM administration. Experienced in implementing ML models for anomaly detection, deploying Wazuh rules, and managing incidents on OpenStack infrastructure.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="https://linkedin.com/in/brahim-saada" class="btn" target="_blank">LinkedIn</a>
                 </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-btn"></div>
+                    <div class="terminal-btn"></div>
+                    <div class="terminal-btn"></div>
                 </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-
-          </div>
-
+                <div class="terminal-content">
+                    <div class="typing">$ whoami</div>
+                    <div>> Cybersecurity Engineer</div>
+                    <div>> SOC Analyst | Threat Hunter</div>
+                    <div>> ML Security Researcher</div>
+                    <div class="typing" style="animation-delay: 3s;">$ cat expertise.txt</div>
+                    <div>> SIEM: Wazuh, ELK Stack</div>
+                    <div>> Frameworks: MITRE ATT&CK, ISO 27001</div>
+                    <div>> Tools: Python, ML, Docker</div>
+                </div>
+            </div>
         </div>
+    </section>
 
-      </div>
-    </section><!-- End Contact Section -->
+    <section id="skills">
+        <h2>Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>🛡️ Offensive & Defensive Security</h3>
+                <ul>
+                    <li>Metasploit, Burp Suite</li>
+                    <li>Nessus, Wireshark, Snort</li>
+                    <li>Incident Response</li>
+                    <li>Threat Hunting</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>📊 SIEM & Monitoring</h3>
+                <ul>
+                    <li>Wazuh, ELK Stack</li>
+                    <li>Splunk basics</li>
+                    <li>Log Analysis</li>
+                    <li>Event Correlation</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>📋 Frameworks & Standards</h3>
+                <ul>
+                    <li>MITRE ATT&CK Framework</li>
+                    <li>ISO/IEC 27001</li>
+                    <li>OWASP Top 10</li>
+                    <li>Zero Trust Architecture</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>☁️ Cloud & Infrastructure</h3>
+                <ul>
+                    <li>Microsoft Azure (AZ-900)</li>
+                    <li>Docker, OpenStack</li>
+                    <li>Linux Administration</li>
+                    <li>Windows Server</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>💻 Development & Automation</h3>
+                <ul>
+                    <li>Python, Bash, PowerShell</li>
+                    <li>Machine Learning (TensorFlow)</li>
+                    <li>REST API</li>
+                    <li>Git, JavaScript</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>🔍 Analysis Tools</h3>
+                <ul>
+                    <li>Zeek, Wireshark</li>
+                    <li>Tcpdump, SoapUI</li>
+                    <li>OWASP ZAP</li>
+                    <li>Digital Forensics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-  </main><!-- End #main -->
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3>Junior Cybersecurity Engineer - ACG Cybersecurity</h3>
+                <div class="experience-date">March 2025 - September 2025 | Remote</div>
+                <p>Implemented machine learning model for real-time anomaly detection on Wazuh SIEM platform. Developed event correlation system and automated alerting to identify suspicious behaviors and intrusion attempts.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Security Analyst Intern - OCP Group</h3>
+                <div class="experience-date">February 2025 - June 2025</div>
+                <p>Deployed and configured custom Wazuh rules to detect password policy violations and security best practice deviations. Achieved significant reduction in internal credential security policy violations.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Cybersecurity Lab Creator - SecDojo</h3>
+                <div class="experience-date">June 2024 - September 2024</div>
+                <p>Created and documented practical cybersecurity laboratories with detailed CVE explanations. Developed exploitation and defense scenarios for offensive security training on the SecDojo learning platform.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Automation Agent - E-ContactMessage</h3>
+                <div class="experience-date">April 2023 - December 2023</div>
+                <p>Automated mass email delivery via JavaScript iMacros. Developed scripts to optimize electronic communication campaigns.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <h3>Brahim Saada</h3>
-      <div class="social-links">
-        <a href="https://facebook.com/sa.brahim22" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://youtube.com/channel/UCXQzhZgiWxw7ItuuhD2Pwqw" class="google-plus"><i class="bx bxl-youtube"></i></a>
-        <a href="https://linkedin.com/in/brahim-saada" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-      <div class="copyright">
-        &copy; <strong><span>Brahim Saada</span></strong>. 2024
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>ML Integration with Wazuh for Anomaly Detection</h3>
+                <p>Developed and integrated ML model for real-time anomaly detection in SIEM logs using TensorFlow and Wazuh.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Wazuh</span>
+                    <span class="tech-tag">ELK Stack</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Network Intrusion Detection System (IDS)</h3>
+                <p>Built ML-based IDS for real-time network attack detection and classification using deep learning techniques.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Wireshark</span>
+                    <span class="tech-tag">Zeek</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Security Incident Management in OpenStack</h3>
+                <p>Implemented complete SIEM architecture for security monitoring and event correlation in OpenStack infrastructure.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">OpenStack</span>
+                    <span class="tech-tag">Wazuh</span>
+                    <span class="tech-tag">Filebeat</span>
+                    <span class="tech-tag">Kibana</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>SOAP API Vulnerability Exploitation</h3>
+                <p>Identified, exploited, and implemented fixes for SOAP API vulnerabilities with comprehensive attack vector documentation.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Burp Suite</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">SoapUI</span>
+                    <span class="tech-tag">OWASP ZAP</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Fraud Detection with DataStream API</h3>
+                <p>Implemented real-time fraud detection system using stream processing for behavioral analysis.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Apache Flink</span>
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Kafka</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>AppSec Vulnerable Platforms</h3>
+                <p>Developed intentionally vulnerable applications for security training, including SSR Injection, XSS, and Open Redirect vulnerabilities.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <section class="contact" id="contact">
+        <h2>Let's Connect</h2>
+        <p style="font-size: 1.2rem; color: #a8b2d1; margin-top: 1rem;">Open to cybersecurity opportunities and collaborations</p>
+        <div class="contact-links">
+            <a href="mailto:s.brahim3001@gmail.com" class="contact-link">📧 Email</a>
+            <a href="tel:+212611072390" class="contact-link">📱 +212 611 07 23 90</a>
+            <a href="https://linkedin.com/in/brahim-saada" target="_blank" class="contact-link">💼 LinkedIn</a>
+            <a href="https://brahimsaada.github.io" target="_blank" class="contact-link">🌐 Portfolio</a>
+        </div>
+    </section>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+        const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
 
+        function draw() {
+            ctx.fillStyle = 'rgba(10, 14, 39, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff9d';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'none';
+                    setTimeout(() => {
+                        entry.target.style.animation = '';
+                    }, 10);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .project-card, .experience-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
-
 </html>
